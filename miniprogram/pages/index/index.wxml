@@ -1,0 +1,78 @@
+<view class="mian">
+    <image mode="widthFix" src="/images/Snipaste_2023-07-02_23-55-12.png"></image>
+    <!--  -->
+    <view class="input">
+        <van-cell-group>
+            <van-field label="姓名" model:value="{{ name }}" placeholder="请输入用户名" border="{{ false }}" />
+        </van-cell-group>
+    </view>
+    <!--  -->
+    <view class="input">
+        <van-cell-group>
+            <van-field label="手机号" type='number' model:value="{{ phone }}" placeholder="请输入您的手机号" border="{{ false }}" />
+        </van-cell-group>
+    </view>
+    <!--  -->
+    <view class="input">
+        <!-- <van-cell-group> -->
+        <van-field model:value="{{ notes }}" label="备注" type="textarea" placeholder="请输入备注" autosize="{{autosize}}" border="{{ false }}" />
+        <!-- </van-cell-group> -->
+    </view>
+
+    <van-popup show="{{ BTshow }}" position="bottom" custom-style="height: 45%;" round bind:close="BTonClose">
+        <van-picker columns="{{ columns }}" show-toolbar bind:change="BTonChange" bind:cancel="BTonCancel" bind:confirm="BTonConfirm" />
+    </van-popup>
+    <van-toast id="van-toast" />
+
+    <!--  -->
+    <view class="input">
+        <van-cell-group>
+            <van-field label="选择业务" model:value="{{ OOvalue }}" placeholder="请点击选择" border="{{ false }}" readonly bind:click-input="OOshowPopup" />
+        </van-cell-group>
+    </view>
+    <van-popup show="{{ OOshow }}" position="bottom" custom-style="height: 45%;" round bind:close="OOonClose">
+        <van-picker columns="{{ orderOrganArr }}" show-toolbar bind:change="OOonChange" bind:cancel="OOonCancel" bind:confirm="OOonConfirm" />
+    </van-popup>
+
+    <!-- 时间： -->
+    <view class="input">
+        <van-cell-group>
+            <van-field label="预约日期" value="{{ orderTime }}" placeholder="请选择您预约的日期" border="{{ false }}" readonly bind:click-input="TMshowPopup" />
+        </van-cell-group>
+    </view>
+
+    <van-popup show="{{ TMshow }}" position="bottom" custom-style="height: 45%;" round bind:close="TMonClose">
+
+        <van-datetime-picker type="date" value="{{ currentDate }}" bind:input="TMonInput" min-date="{{ minDate }}" max-date="{{maxDate}}" formatter="{{ formatter }}" bind:cancel="TMonCancel" bind:confirm="TMonConfirm" />
+    </van-popup>
+
+
+    <!--  -->
+    <view class="timeTile">请选择方便联系您的时间段</view>
+    <view class="time" wx:if="{{loading}}">
+        <van-row custom-class="timeRow" gutter="14">
+            <van-col span="8" wx:for="{{timeArr}}">
+                <view class="timeTag {{item.id == timeId? 'Tag1':''}}" catchtap="timeTagOnChange"   data-item="{{item}}">
+                    <text>{{item.time}}</text>
+                    <text style="font-size: 22rpx; color: #918f8f;">今日名额：{{item.num}}</text>
+                </view>
+            </van-col>
+        </van-row>
+
+    </view>
+
+   <view wx:if="{{!loading}}" style="width: 100%; display: flex;justify-content: center;">
+    <van-loading type="spinner" >加载中...</van-loading>
+   </view>
+
+
+
+    <!-- 提交 -->
+
+    <van-row wx:if="{{limit == '开启预约'}}">
+        <button style="background-color:{{!yuyue? '#f3be7a':'#6e6e6e'}} ; border-radius: 30rpx; margin-bottom: 100rpx;margin-top: 100rpx; color: #fff;" bindtap="{{!yuyue? 'update':''}}">提交</button>
+    </van-row>
+    <van-row  wx:if="{{limit == '关闭预约'}}">
+        <button style="background-color:#292929 ; border-radius: 30rpx; margin-bottom: 100rpx;margin-top: 100rpx; color: #fff;">今日不可预约</button>
+    </van-row>
+</view>

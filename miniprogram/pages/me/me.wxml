@@ -1,0 +1,24 @@
+<view class="container">
+  <view class="tui-banner__box" bindtap="toLogin">
+    <image src="../../images/sp1ep2vguas6o328du6r9g4ru4yyob3s_.png" class="tui-banner"></image>
+    <view class="tui-user__box" bindtap="toUser">
+      <image style="width: 100rpx; height: 100rpx; border-radius: 50%; margin-right: 20rpx;" src="{{headImg}}" alt="" />
+      <view class="tui-name">{{name? name :'点击登录'}}</view>
+      <text style="font-size: 36rpx; color: #fff;">></text>
+
+    </view>
+  </view>
+</view>
+<view class="order_list">
+  <!-- <view style="padding: 20rpx; font-weight: 600; font-size: 42rpx;">预约记录：</view> -->
+  <van-cell-group>
+    <van-cell wx:for="{{list}}" title="{{item.OOvalue}}" value="{{item.state=='0' ? '待同意' : (item.state=='2' ? '拒绝' : '已完成')}}" label=" " border="{{ false }}">
+      <view slot="title">
+        <view class="van-cell-text">{{item.orderTime}}</view>
+        <van-tag type="danger">{{item.time}}</van-tag>
+        <view bind:tap="cancel" data-item="{{item}}" style="background-color: #777777; padding: 0 10rpx; color: #fff; border-top-right-radius: 20rpx;border-bottom-right-radius: 20rpx;">取消预约</view>
+      </view>
+    </van-cell>
+
+  </van-cell-group>
+</view>

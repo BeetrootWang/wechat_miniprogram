@@ -1,0 +1,94 @@
+image {
+  width: 100%;
+}
+
+.van-button {
+  margin-top: 100rpx !important;
+  margin-bottom: 120rpx !important;
+  padding: 5rpx 177rpx !important;
+}
+
+.input {
+  margin-bottom: 20rpx !important;
+}
+
+.rank58Text {
+  background-image: -webkit-linear-gradient(bottom, red, #fd8403, yellow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.van-icon{
+  background-image: -webkit-linear-gradient(bottom, red, #fd8403, yellow) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+.rankText{
+  background-image: -webkit-linear-gradient(bottom, red, #fd8403, yellow) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  margin-bottom: 20rpx !important;
+}
+.timeTile{
+  margin: 20rpx !important;
+  /* margin-bottom: 20rpx !important; */
+  text-align: center;
+  background-image: -webkit-linear-gradient(bottom, red, #fd8403, yellow) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  
+}
+.time{
+  /* padding:0 20rpx !important; */
+  width: 96%;
+  margin-left: 40rpx;
+}
+.timeRow{
+  margin-bottom: 30rpx !important;
+  font-size: 28rpx;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-around; */
+ 
+}
+.timeOne{
+  /* background-color:pink; */
+  text-align: center;
+  line-height: 60rpx;
+}
+.timeTag{
+ width: 200rpx;
+ flex: 1;
+ margin-top: 18rpx;
+  /* border: red solid 1rpx; */
+  border-radius: 10px;
+  background-color: white;
+  text-align: center;
+  color: #575757;
+  line-height: 45rpx;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+/* .Tag1{
+  border: #eee4dc solid 1rpx;
+  background-color: #fef0e6;
+  color: #dd9048;
+} */
+.time .Tag1
+{
+  border: #eee4dc solid 1rpx !important;
+  background-color: #fef0e6 !important;
+  color: #dd9048 !important;
+}
+
+
+.inputOS{
+  white-space:nowrap !important;
+}
+
+.tips{
+  color: #cbcbd0;
+  font-size:small;
+  margin-bottom: 20rpx !important;
+}

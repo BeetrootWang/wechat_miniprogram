@@ -1,0 +1,21 @@
+<van-cell title="头像" center>
+	<button style="width: 150rpx; height: 120rpx; margin: 0 ;padding: 0; float: right; display: flex;justify-content: center;align-items: center; border: none; " plain="true" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+		<image style="width: 100rpx; height: 100rpx;" src="{{imgUrl? imgUrl:'../../images/1.png'}}" mode="" />
+	</button>
+
+	<van-icon slot="right-icon" name="arrow" size="15px" class="custom-icon" />
+</van-cell>
+
+<van-cell-group>
+	<van-field value="{{ name }}" label="用户名" placeholder="请输入用户名" input-align="right" bind:change="onChangeName" />
+</van-cell-group>
+
+
+
+
+<view class="btn_bottom" wx:if="{{!login}}">
+<button style="background-color: #fe8e60;" bindtap="sumib">提交</button>
+</view>
+<view class="btn_bottom" wx:if="{{login}}">
+<button style="background-color: #fe8e60;" bindtap="upSumib">提交</button>
+</view>

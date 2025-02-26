@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/me/me",
+    "pages/userInfor/userInfor"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "预约排号",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-cell": "@vant/weapp/cell/index",
+      "van-cell-group": "@vant/weapp/cell-group/index",
+      "van-toast": "@vant/weapp/toast/index",
+      "van-icon": "@vant/weapp/icon/index",
+      "van-datetime-picker": "@vant/weapp/datetime-picker/index"
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "color": "#999",
+    "selectedColor": "#fe8e60",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "预约",
+        "iconPath": "images/33.png",
+        "selectedIconPath": "images/3.png"
+      },
+     
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "images/11.png",
+        "selectedIconPath": "images/1.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

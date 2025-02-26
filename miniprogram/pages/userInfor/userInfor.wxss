@@ -1,0 +1,42 @@
+
+
+.van-uploader__upload {
+  display: flex;
+  justify-content: center;
+  /* border-radius: 50%; */
+}
+.van-icon--image{
+  width: 80px !important;
+  height: 80px !important;
+}
+
+.van-field__label {
+  /* width: 60rpx; */
+  /* line-height: 88px; */
+}
+
+.van-cell--hover {
+  display: flex;
+  align-items: center;
+}
+
+/* .van-field__control {
+  background-color: #e7e7e79d !important;
+  height: 80rpx !important;
+  margin-right: 20rpx !important;
+  border-radius: 10rpx;
+  padding-left: 15rpx !important;
+} */
+
+
+.btn_bottom{
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 60rpx;
+
+}
+.btn_bottom button{
+  width: 500rpx;
+  color: #fff;
+}

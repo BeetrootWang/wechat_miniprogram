@@ -1,0 +1,137 @@
+page{
+	width: 100%;
+	height: 100%;
+	background-color: #f1f1f1;
+}
+.container{
+	width: 100%;
+	padding: 10rpx 30rpx 40rpx;
+	box-sizing: border-box;
+}
+.tui-banner__box{
+	width: 100%;
+	height: 280rpx;
+	position: relative;
+}
+.tui-banner{
+	width: 100%;
+	height: 280rpx;
+	border-radius: 12rpx;
+}
+.tui-user__box{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 2;
+	color: #ac9157;
+	display: flex;
+	/* flex-direction: column; */
+	align-items: center;
+	justify-content: center;
+	padding: 0 60rpx;
+	box-sizing: border-box;
+}
+.tui-name{
+	width: 80%;
+	font-size: 34rpx;
+	/* line-height: 24rpx; */
+	font-weight: bold;
+}
+.tui-integral{
+	font-size: 24rpx;
+	line-height: 24rpx;
+	padding-top: 24rpx;
+}
+
+.tui-goods__item {
+	width: 90%;
+	display: flex;
+	align-items: center;
+	position: relative;
+	padding: 0 20rpx;
+}
+
+.tui-goods__item image {
+	width: 120rpx;
+	height: 120rpx;
+	border-radius: 8rpx;
+	background-color: #f8f8f8;
+	flex-shrink: 0;
+}
+
+.tui-goods__info {
+	width: 60%;
+	font-size: 26rpx;
+	padding-left: 20rpx;
+}
+
+.tui-name {
+	width: 80%;
+	font-size: 28rpx;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.tui-attr {
+	font-size: 24rpx;
+	color: #999;
+	padding: 8rpx 0;
+}
+
+.tui-quantity {
+	position: absolute;
+	right: 0;
+	top: 8rpx;
+	font-size: 24rpx;
+}
+
+
+
+.content_box {
+	width: 100%;
+
+}
+
+.content_box {
+	width: 90%;
+	height: 360rpx;
+	/* background-color: red; */
+	margin: 10rpx auto;
+	border-radius: 20rpx;
+	background-size: 100% 100%;
+	
+}
+
+.content_item {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.tiem_box {
+	position: absolute;
+	top: 30rpx;
+	left: 0;
+	width: 270rpx;
+	background: linear-gradient(to right, #fdfdfd, #f1f1f1, #578aef00);
+}
+
+.detail {
+	position: absolute;
+	top: 110rpx;
+	left: 30rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 160rpx;
+	color: #fff;
+}
+
+.order_list{
+	width: 92%;
+	background-color: #fff;
+	margin: 0 auto;
+}
