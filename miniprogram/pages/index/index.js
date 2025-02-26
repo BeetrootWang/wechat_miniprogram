@@ -176,9 +176,18 @@ Page({
     let now = new Date();
     let sixAM = new Date();
     sixAM.setHours(6,0,0,0);
-    if (now <sixAM) {
+    if (now < sixAM) {
         this.setData({
             maxDate: now.getTime() + (5 * 24 * 60 * 60 * 1000)
+        });
+    }
+
+    // 若晚于中午12点，则默认显示第二天的号
+    let twelveAM = new Date();
+    twelveAM.setHours(12,0,0,0);
+    if (now > twelveAM) {
+        this.setData({
+            minDate: now.getTime + (24 * 60 * 60 * 1000)
         });
     }
 
