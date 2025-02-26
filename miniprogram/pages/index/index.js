@@ -157,8 +157,9 @@ Page({
       timeArr,
       loading: true
     })
-
     console.log(timeArr)
+    const allFull = this.data.timeArr.every(item => item.num === 0);
+    this.setData({allFull});
 
     //隐藏加载中
   },
@@ -167,11 +168,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
-    const value = this.timestampToTime(this.data.currentDate);
-    this.setData({
-      orderTime: value
-    })
-
     // 若早于上午六点，则只给出未来五天（以及当天）的号
     let now = new Date();
     let sixAM = new Date();
@@ -187,11 +183,18 @@ Page({
     twelveAM.setHours(12,0,0,0);
     if (now > twelveAM) {
         this.setData({
-            minDate: now.getTime + (24 * 60 * 60 * 1000)
+            minDate: now.getTime() + (24 * 60 * 60 * 1000),
         });
     }
+    this.setData({
+        currentDate: Math.max(this.data.currentDate, this.data.minDate)
+    });
+    const value = this.timestampToTime(this.data.currentDate);
+    this.setData({
+      orderTime: value
+    });
 
-    this.numTims()
+    this.numTims();
     //获取自定义日期限制
     console.log(this.data.limitTime)
     var limitNum = await new Promise((resolve, reject) => {
