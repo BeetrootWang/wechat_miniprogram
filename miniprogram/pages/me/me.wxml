@@ -9,16 +9,60 @@
     </view>
   </view>
 </view>
-<view class="order_list">
-  <!-- <view style="padding: 20rpx; font-weight: 600; font-size: 42rpx;">预约记录：</view> -->
-  <van-cell-group>
-    <van-cell wx:for="{{list}}" title="{{item.OOvalue}}" value="{{item.state=='0' ? '待同意' : (item.state=='2' ? '拒绝' : '已完成')}}" label=" " border="{{ false }}">
-      <view slot="title">
-        <view class="van-cell-text">{{item.orderTime}}</view>
-        <van-tag type="danger">{{item.time}}</van-tag>
-        <view bind:tap="cancel" data-item="{{item}}" style="background-color: #777777; padding: 0 10rpx; color: #fff; border-top-right-radius: 20rpx;border-bottom-right-radius: 20rpx;">取消预约</view>
-      </view>
-    </van-cell>
 
-  </van-cell-group>
+<view class="order_list">
+  <view style="padding: 20rpx; font-weight: 600; font-size: 42rpx;">
+    预约记录：
+  </view>
+  
+  <!-- 未过期预约部分 -->
+  <view class="section">
+    <view class="section-title" style="padding: 0 20rpx; font-size: 36rpx; font-weight: 600;">
+      未过期预约
+    </view>
+    <van-cell-group>
+      <van-cell wx:for="{{validAppointments}}" wx:key="id" 
+        value="{{item.state=='0' ? '待同意' : (item.state=='2' ? '拒绝' : '已完成')}}" 
+        label=" " border="{{ false }}">
+        <view slot="title">
+            <view class="van-cell-text">{{item.OOvalue}}</view>
+            <view class="van-cell-text">{{item.orderTime}}</view>
+            <van-tag type="danger">{{item.time}}</van-tag>
+            <view bind:tap="cancel" data-item="{{item}}" 
+                style="background-color: #777777; padding: 0 20rpx; color: #fff; border-top-right-radius: 20rpx; border-bottom-right-radius: 20rpx;border-top-left-radius: 20rpx; border-bottom-left-radius: 20rpx; text-align: center;">
+            取消预约
+            </view>
+        </view>
+      </van-cell>
+    </van-cell-group>
+  </view>
+
+  <!-- 已过期预约部分（带折叠功能） -->
+  <view class="section" style="margin-top: 20rpx;">
+    <view class="section-title" style="padding: 0 20rpx; font-size: 36rpx; font-weight: 600; display: flex; align-items: center;">
+        <text>已过期预约</text>
+        <button bindtap="toggleExpired" style="margin-right: 5rpx; width: 200rpx; padding: 0 1rpx; font-size: 28rpx;">
+
+            {{showExpired ? '收起' : '展开'}}
+        </button>
+    </view>
+    <!-- 当 showExpired 为 true 时，显示已过期预约列表 -->
+    <view wx:if="{{showExpired}}">
+      <van-cell-group>
+        <van-cell wx:for="{{expiredAppointments}}" wx:key="id" 
+          title="{{item.OOvalue}}" 
+          value="{{item.state=='0' ? '待同意' : (item.state=='2' ? '拒绝' : '已完成')}}" 
+          label=" " border="{{ false }}">
+          <view slot="title">
+            <view class="van-cell-text">{{item.orderTime}}</view>
+            <van-tag type="danger">{{item.time}}</van-tag>
+            <view bind:tap="cancel" data-item="{{item}}" 
+                  style="background-color: #777777; padding: 0 10rpx; color: #fff; border-top-right-radius: 20rpx; border-bottom-right-radius: 20rpx;">
+              取消预约
+            </view>
+          </view>
+        </van-cell>
+      </van-cell-group>
+    </view>
+  </view>
 </view>

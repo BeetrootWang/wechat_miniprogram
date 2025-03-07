@@ -52,8 +52,10 @@
 
 
     <!-- 提交 -->
-
-    <van-row wx:if="{{limit == '开启预约' && !allFull}}">
+    <view wx:if="{{!loading}}" style="width: 100%; display: flex;justify-content: center;">
+            <van-loading type="spinner" >加载中...</van-loading>
+    </view>
+    <van-row wx:if="{{limit == '开启预约' && !allFull && loading}}">
         <!--  -->
         <view class="timeTile">请选择方便联系您的时间段</view>
             <view class="time" wx:if="{{loading}}">
@@ -67,19 +69,15 @@
                 </van-row>
 
             </view>
-
-        <view wx:if="{{!loading}}" style="width: 100%; display: flex;justify-content: center;">
-            <van-loading type="spinner" >加载中...</van-loading>
-        </view>
         <button style="background-color:{{!yuyue? '#f3be7a':'#6e6e6e'}} ; border-radius: 30rpx; margin-bottom: 100rpx;margin-top: 100rpx; color: #fff;" bindtap="{{!yuyue? 'update':''}}">提交</button>
     
     </van-row>
 
-    <van-row  wx:if="{{limit == '开启预约' && allFull}}">
+    <van-row  wx:if="{{limit == '开启预约' && allFull && loading}}">
         <button style="background-color:#292929 ; border-radius: 30rpx; margin-bottom: 100rpx;margin-top: 100rpx; color: #fff;">今日名额已满</button>
     </van-row>
 
-    <van-row  wx:if="{{limit == '关闭预约'}}">
+    <van-row  wx:if="{{limit == '关闭预约' && loading}}">
         <button style="background-color:#292929 ; border-radius: 30rpx; margin-bottom: 100rpx;margin-top: 100rpx; color: #fff;">今日不可预约</button>
     </van-row>
 </view>
